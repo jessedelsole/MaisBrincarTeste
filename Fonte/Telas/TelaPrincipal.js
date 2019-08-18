@@ -12,15 +12,16 @@ state = {
 categorias = [];
 
 componentDidMount(){
-
-     for(i=1;i<=10;i++){
-        this.categorias.push({nome:'Categoria'+i , filmes :[{nome:'Filme 1'},{nome:'Filme 2'} ]});
+ 
+    for(i=1;i<=10;i++){
+          filmes=[];
+          for(j=1;j<=10;j++){
+            filmes.push({nome:'Filme'+j});
+          }  
+          this.categorias.push({nome:'Categoria'+i , filmes});
      }
-
      this.setState( {categorias : this.categorias});
-
   }
-
 
   render(){
   return (
@@ -28,7 +29,7 @@ componentDidMount(){
        <FlatList style={{flex:1, width:'100%'}}
        data={this.state.categorias}
        keyExtractor= {(item,index)=> index.toString()}
-       renderItem = {({item})=> <LinhaCategoria nomeCategoria={item.nome} ></LinhaCategoria> }
+       renderItem = {({item})=> <LinhaCategoria nomeCategoria={item.nome} filmes={item.filmes}></LinhaCategoria> }
      
        ></FlatList>
     </SafeAreaView>
