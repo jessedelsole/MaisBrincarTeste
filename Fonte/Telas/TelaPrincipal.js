@@ -30,8 +30,7 @@ componentDidMount(){
        data={this.state.categorias}
        keyExtractor= {(item,index)=> index.toString()}
        renderItem = {({item})=> <LinhaCategoria nomeCategoria={item.nome} filmes={item.filmes}></LinhaCategoria> }
-     
-       ></FlatList>
+        ></FlatList>
     </SafeAreaView>
   );
   }
