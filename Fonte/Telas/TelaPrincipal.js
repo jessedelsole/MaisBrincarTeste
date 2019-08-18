@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView} from 'react-native';
+import { StyleSheet, SafeAreaView,View, Image, Text} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import LinhaCategoria from '../Componentes/LinhaCategoria';
+import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 
 export default class TelaPrincipal extends React.Component{
-  
+ 
+
+ static navigationOptions = {
+    header: null
+}
 state = {
   categorias : []
 }
@@ -26,10 +31,18 @@ componentDidMount(){
   render(){
   return (
     <SafeAreaView style={styles.container}>
+       <View style={{height:100,width:'100%',justifyContent:'center',alignItems:'center', flexDirection:'row'}}>
+          
+            <Image source={require('./../Recursos/Imagens/basketball.png')} ></Image>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar App</Text>
+         
+          </View>
+       
        <FlatList style={{flex:1, width:'100%'}}
        data={this.state.categorias}
        keyExtractor= {(item,index)=> index.toString()}
-       renderItem = {({item})=> <LinhaCategoria nomeCategoria={item.nome} filmes={item.filmes}></LinhaCategoria> }
+       renderItem = {({item})=> <LinhaCategoria nomeCategoria={item.nome} filmes={item.filmes}
+        onClick = {() =>  this.props.navigation.navigate('NavSelecaoVideo')  }></LinhaCategoria> }
         ></FlatList>
     </SafeAreaView>
   );

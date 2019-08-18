@@ -9,7 +9,7 @@ export default class TelaAutenticacao extends React.Component {
         <View style={{ flex: 1, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
           <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
             <Image source={require('./../Recursos/Imagens/basketball.png')} ></Image>
-            <Text style={{ fontWeight: 'bold', fontSize: 20, color: CoresProjeto.Marrom, marginLeft: 10 }}>Mais Brincar App</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar App</Text>
           </View>
         </View>
         <View style={{ flex: 1, width: '100%', justifyContent: 'center', alignItems: 'center' }}>

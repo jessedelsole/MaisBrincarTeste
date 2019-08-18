@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ActivityIndicator,StatusBar,AsyncStorage } from 'react-native';
 
-
-
 export default class TelaCarregando extends React.Component{
   
   constructor() {
@@ -13,7 +11,6 @@ export default class TelaCarregando extends React.Component{
   inicializacaoApp = async () => {
     const userToken = await AsyncStorage.getItem('userToken');
 
-    
     //this.props.navigation.navigate(userToken?'NavAplicacao':'NavAutenticacao');
     this.props.navigation.navigate('NavAutenticacao');
   };

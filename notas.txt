@@ -1,0 +1,2 @@
+//Instalação de pacotes adiionais:
+//npm install native-base --save
