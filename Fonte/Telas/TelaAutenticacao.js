@@ -24,7 +24,7 @@ export default class TelaAutenticacao extends React.Component {
           <View style={{ backgroundColor: CoresProjeto.Branco, padding: 10 }}>
             <TouchableOpacity
               onPress={() => { this.props.navigation.navigate('NavAplicacao') }}  >
-              <Text style={{ fontWeight: 'bold', fontSize: 16, color: CoresProjeto.Azul }}>Login com Google</Text>
+              <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'black' }}>Login com Google</Text>
             </TouchableOpacity>
           </View>
         </View>
