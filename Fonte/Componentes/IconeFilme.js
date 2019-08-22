@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View,TouchableOpacity ,Image} from 'react-native';
+
 
 export default class IconeFilme extends React.Component {
     render() {
         return (
-           <TouchableOpacity  onPress = { () => this.props.onClick() }>
-            <View style={{ width: 130, height: 110, backgroundColor: 'gray', margin: 1 }}>
-            </View>
-            </TouchableOpacity>
+          <View style = {{flex:1, backgroundColor:'gray',margin:5, height:200}}>
+            <TouchableOpacity style={{flex:1,width:'100%'}} onPress = {() => {this.props.onClick()}}>
+            <Image style={{flex:1,width:'100%'}} source= {require('./../Recursos/Imagens/clapperboard.png')} resizeMode='center' ></Image>
+          </TouchableOpacity>
+          </View>
         );
     }
 }

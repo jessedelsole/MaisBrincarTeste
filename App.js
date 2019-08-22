@@ -7,8 +7,6 @@ import { createStackNavigator, createSwitchNavigator, createAppContainer, create
 import MenuGaveta from './Fonte/Componentes/MenuGaveta';
 import React, { Component } from "react";
 
-
-
 const NavigatorAplicacao = createStackNavigator({ NavPrincipal: TelaPrincipal, NavSelecaoVideo:TelaSelecaoVideo, NavReprodutor:TelaReprodutor});
 
 const NavigatorTelaPrincipal = createDrawerNavigator(
@@ -17,8 +15,6 @@ const NavigatorTelaPrincipal = createDrawerNavigator(
   },{
     contentComponent: props => <MenuGaveta {...props} />
   }
-
- 
 );
 
 export default createAppContainer( createSwitchNavigator(

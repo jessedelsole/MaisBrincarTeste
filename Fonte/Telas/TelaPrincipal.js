@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView,View, Image, Text, TouchableOpacity} from 'rea
 import { FlatList } from 'react-native-gesture-handler';
 import LinhaCategoria from '../Componentes/LinhaCategoria';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
+import IconeFilme from '../Componentes/IconeFilme';
 
 
 export default class TelaPrincipal extends React.Component{
@@ -37,14 +38,15 @@ componentDidMount(){
             </TouchableOpacity>
         <View style={{flex:1, justifyContent:'center',alignItems:'center', flexDirection:'row'}} > 
             <Image source={require('./../Recursos/Imagens/basketball.png')} ></Image>
-            <Text style={{ fontWeight: 'bold', fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar App</Text>
+            <Text style={{ fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar App</Text>
           </View>
          </View>
        <FlatList style={{flex:1, width:'100%'}}
        data={this.state.categorias}
        keyExtractor= {(item,index)=> index.toString()}
-       renderItem = {({item})=> <LinhaCategoria nomeCategoria={item.nome} filmes={item.filmes}
-        onClick = {() =>  this.props.navigation.navigate('NavSelecaoVideo')  }></LinhaCategoria> }
+       renderItem = {({item})=> <IconeFilme onClick={()=> this.props.navigation.navigate('NavSelecaoVideo')} nome = {item.nome}></IconeFilme>}
+       numColumns = {2}
+   
         ></FlatList>
     </SafeAreaView>
   );
