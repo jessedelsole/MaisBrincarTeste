@@ -4,6 +4,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import LinhaCategoria from '../Componentes/LinhaCategoria';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
 import IconeCurso from '../Componentes/IconeCurso';
+import { ServiceCursos } from '../WebServices/ServiceCursos';
 
 
 export default class TelaPrincipal extends React.Component{
@@ -15,19 +16,10 @@ state = {
   categorias : []
 }
 
-categorias = [];
-
 componentDidMount(){
- 
-    for(i=1;i<=10;i++){
-          filmes=[];
-          for(j=1;j<=10;j++){
-            filmes.push({nome:'Filme'+j});
-          }  
-          this.categorias.push({nome:'Curso'+i , descricao:'Descricao do Curso'+i, filmes});
-     }
-     this.setState( {categorias : this.categorias});
+     ServiceCursos.getCursos().then( (categorias)=> this.setState({categorias}));
   }
+
  render(){
   return (
     <SafeAreaView style={styles.container}>
