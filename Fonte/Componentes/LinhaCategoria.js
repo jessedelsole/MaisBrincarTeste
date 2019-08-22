@@ -7,7 +7,7 @@ export default class LinhaCategoria extends React.Component {
   render() {
     return (
      
-      <View style={{ width: '100%', height: 100, backgroundColor: 'white', margin: 2 }}>
+      <View style={{ width: '100%', height: 100, backgroundColor: 'white', margin: 2 }}> 
          
             <Text style={{ fontWeight: 'bold' }} >{this.props.nomeCategoria}</Text>
           

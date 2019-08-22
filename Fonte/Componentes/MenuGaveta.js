@@ -11,7 +11,7 @@ return (
  <SafeAreaView style={styles.container}>
      <View style={{height:50,width:'100%',justifyContent:'center',alignItems:'center', flexDirection:'row'}}>
             <Image source={require('./../Recursos/Imagens/basketball.png')} ></Image>
-            <Text style={{ fontWeight: 'bold', fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar App</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar</Text>
          </View>
 
     <View style={{ flex: 1 }}>

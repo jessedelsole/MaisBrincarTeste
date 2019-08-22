@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView,View, Image, Text, TouchableOpacity} from 'rea
 import { FlatList } from 'react-native-gesture-handler';
 import LinhaCategoria from '../Componentes/LinhaCategoria';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
-import IconeFilme from '../Componentes/IconeFilme';
+import IconeCurso from '../Componentes/IconeCurso';
 
 
 export default class TelaPrincipal extends React.Component{
@@ -24,27 +24,28 @@ componentDidMount(){
           for(j=1;j<=10;j++){
             filmes.push({nome:'Filme'+j});
           }  
-          this.categorias.push({nome:'Categoria'+i , filmes});
+          this.categorias.push({nome:'Curso'+i , descricao:'Descricao do Curso'+i, filmes});
      }
      this.setState( {categorias : this.categorias});
   }
  render(){
   return (
     <SafeAreaView style={styles.container}>
-       <View style={{height:50,width:'100%', flexDirection:'row', padding:5}}>
+       <View style={{height:50,width:'100%', flexDirection:'row', padding:5, borderBottomColor:CoresProjeto.CinzaClaro, borderBottomWidth:1}}>
             <TouchableOpacity 
                onPress = { () => {this.props.navigation.openDrawer() }}
              ><Image source={require('./../Recursos/Imagens/menu.png')} ></Image>
             </TouchableOpacity>
         <View style={{flex:1, justifyContent:'center',alignItems:'center', flexDirection:'row'}} > 
             <Image source={require('./../Recursos/Imagens/basketball.png')} ></Image>
-            <Text style={{ fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar App</Text>
+            <Text style={{ fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar</Text>
           </View>
          </View>
        <FlatList style={{flex:1, width:'100%'}}
        data={this.state.categorias}
        keyExtractor= {(item,index)=> index.toString()}
-       renderItem = {({item})=> <IconeFilme onClick={()=> this.props.navigation.navigate('NavSelecaoVideo')} nome = {item.nome}></IconeFilme>}
+       renderItem = {({item})=> <IconeCurso onClick={()=> this.props.navigation.navigate('NavSelecaoVideo')} 
+         nome = {item.nome} descricao={item.descricao} > </IconeCurso>}
        numColumns = {2}
    
         ></FlatList>
@@ -60,6 +61,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 });
