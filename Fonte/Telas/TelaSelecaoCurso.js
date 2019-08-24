@@ -13,7 +13,7 @@ export default class TelaSelecaoCurso extends React.Component {
         <Image style={{flex:1,width:'100%'}} source= {require('./../Recursos/Imagens/clapperboard.png')} 
                resizeMode='center' ></Image>
         </View>
-        <TouchableOpacity style={{ width: '100%', margin: 10 }} onPress={() => { this.props.navigation.navigate('NavReprodutor') }}>
+        <TouchableOpacity style={{ width: '100%', margin: 10 }} onPress={() => { this.props.navigation.navigate('NavListagemAulas') }}>
           <View style={{ backgroundColor: CoresProjeto.CinzaClaro, height: 60, width: '100%', 
             justifyContent: 'center', alignItems: 'center',flexDirection:'row' }}>
             <Image style = {{marginRight:10}}source = {require('./../Recursos/Imagens/video-camera.png')}></Image>
@@ -21,7 +21,7 @@ export default class TelaSelecaoCurso extends React.Component {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: '100%', margin: 5 }} onPress={() => { this.props.navigation.navigate('NavReprodutor') }}>
+        <TouchableOpacity style={{ width: '100%', margin: 5 }} onPress={() => { this.props.navigation.navigate('NavListagemAudios') }}>
           <View style={{ backgroundColor: CoresProjeto.CinzaClaro, height: 60, width: '100%', justifyContent: 'center', 
            alignItems: 'center' ,flexDirection:'row' }}>
               <Image style = {{marginRight:10}} source = {require('./../Recursos/Imagens/speaker.png')}></Image>
@@ -29,7 +29,7 @@ export default class TelaSelecaoCurso extends React.Component {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ width: '100%', margin: 5 }} onPress={() => { this.props.navigation.navigate('NavReprodutor') }}>
+        <TouchableOpacity style={{ width: '100%', margin: 5 }} onPress={() => { this.props.navigation.navigate('NavListagemPdfs') }}>
           <View style={{ backgroundColor: CoresProjeto.CinzaClaro, height: 60, width: '100%', justifyContent: 'center', 
           alignItems: 'center',flexDirection:'row'  }}>
              <Image style = {{marginRight:10}}source = {require('./../Recursos/Imagens/file.png')}></Image>
@@ -37,7 +37,7 @@ export default class TelaSelecaoCurso extends React.Component {
           </View>
         </TouchableOpacity>
        
-        <TouchableOpacity style={{ width: '100%', margin: 5 }} onPress={() => { this.props.navigation.navigate('NavReprodutor') }}>
+        <TouchableOpacity style={{ width: '100%', margin: 5 }} onPress={() => { this.props.navigation.navigate('NavListagemReferencias') }}>
           <View style={{ backgroundColor: CoresProjeto.CinzaClaro, height: 60, width: '100%', justifyContent: 'center', 
           alignItems: 'center',flexDirection:'row'  }}>
              <Image style = {{marginRight:10}} source = {require('./../Recursos/Imagens/link.png')}></Image>

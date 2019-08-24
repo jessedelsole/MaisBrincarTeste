@@ -14,9 +14,8 @@ export default class TelaCarregando extends React.Component{
   inicializacaoApp = async () => {
     this.userToken = await AsyncStorage.getItem('userToken');
 
-    new Promise((resolve) =>  
-      setTimeout(
-        () => {  resolve( this.gotoMainForm())}, 2000 ) );
+    setTimeout( () => {   this.gotoMainForm()}, 2000 ) ;
+
   };
 
   gotoMainForm = () => {

@@ -6,8 +6,14 @@ import TelaAutenticacao from './Fonte/Telas/TelaAutenticacao';
 import { createStackNavigator, createSwitchNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
 import MenuGaveta from './Fonte/Componentes/MenuGaveta';
 import React, { Component } from "react";
+import TelaListagemAudios from './Fonte/Telas/TelaListagemAudios';
+import TelaListagemAulas from './Fonte/Telas/TelaListagemAulas';
+import TelaListagemPdfs from './Fonte/Telas/TelaListagemPdfs';
+import TelaListagemReferencias from './Fonte/Telas/TelaListagemReferencias';
 
-const NavigatorAplicacao = createStackNavigator({ NavPrincipal: TelaPrincipal, NavSelecaoCurso:TelaSelecaoCurso, NavReprodutor:TelaReprodutor});
+const NavigatorAplicacao = createStackNavigator({ NavPrincipal: TelaPrincipal, NavSelecaoCurso:TelaSelecaoCurso, 
+  NavReprodutor:TelaReprodutor, NavListagemAudios : TelaListagemAudios, NavListagemAulas: TelaListagemAulas,
+ NavListagemPdfs : TelaListagemPdfs, NavListagemReferencias: TelaListagemReferencias});
 
 const NavigatorTelaPrincipal = createDrawerNavigator(
   {
