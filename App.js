@@ -1,5 +1,5 @@
 import TelaPrincipal from './Fonte/Telas/TelaPrincipal';
-import TelaSelecaoVideo from './Fonte/Telas/TelaSelecaoVideo';
+import TelaSelecaoCurso from './Fonte/Telas/TelaSelecaoCurso';
 import TelaReprodutor from './Fonte/Telas/TelaReprodutor';
 import TelaCarregando from './Fonte/Telas/TelaCarregando';
 import TelaAutenticacao from './Fonte/Telas/TelaAutenticacao';
@@ -7,7 +7,7 @@ import { createStackNavigator, createSwitchNavigator, createAppContainer, create
 import MenuGaveta from './Fonte/Componentes/MenuGaveta';
 import React, { Component } from "react";
 
-const NavigatorAplicacao = createStackNavigator({ NavPrincipal: TelaPrincipal, NavSelecaoVideo:TelaSelecaoVideo, NavReprodutor:TelaReprodutor});
+const NavigatorAplicacao = createStackNavigator({ NavPrincipal: TelaPrincipal, NavSelecaoCurso:TelaSelecaoCurso, NavReprodutor:TelaReprodutor});
 
 const NavigatorTelaPrincipal = createDrawerNavigator(
   {
