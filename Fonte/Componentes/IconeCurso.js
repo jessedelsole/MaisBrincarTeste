@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View,TouchableOpacity ,Image} from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
 
-
 export default class IconeCurso extends React.Component {
     render() {
         return (
