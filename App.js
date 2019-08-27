@@ -10,10 +10,16 @@ import TelaListagemAudios from './Fonte/Telas/TelaListagemAudios';
 import TelaListagemAulas from './Fonte/Telas/TelaListagemAulas';
 import TelaListagemPdfs from './Fonte/Telas/TelaListagemPdfs';
 import TelaListagemReferencias from './Fonte/Telas/TelaListagemReferencias';
+import TelaAutenticacaoEmail from './Fonte/Telas/TelaAutenticacaoEmail';
+import TelaEsqueceuSenha from './Fonte/Telas/TelaEsqueceuSenha';
+import TelaCadastroEmail from './Fonte/Telas/TelaCadastroEmail';
 
 const NavigatorAplicacao = createStackNavigator({ NavPrincipal: TelaPrincipal, NavSelecaoCurso:TelaSelecaoCurso, 
   NavReprodutor:TelaReprodutor, NavListagemAudios : TelaListagemAudios, NavListagemAulas: TelaListagemAulas,
  NavListagemPdfs : TelaListagemPdfs, NavListagemReferencias: TelaListagemReferencias});
+
+ const NavigatorAutenticacao = createStackNavigator({ NavAutenticacao:TelaAutenticacao, NavAutenticacaoEmail:TelaAutenticacaoEmail,
+ NavEsqueceuSenha:TelaEsqueceuSenha, NavCadastroEmail:TelaCadastroEmail});
 
 const NavigatorTelaPrincipal = createDrawerNavigator(
   {
@@ -26,7 +32,7 @@ const NavigatorTelaPrincipal = createDrawerNavigator(
 export default createAppContainer( createSwitchNavigator(
   {
     NavCarregando   : TelaCarregando,
-    NavAutenticacao : TelaAutenticacao,
+    NavAutenticacao : NavigatorAutenticacao,
     NavAplicacao    : NavigatorTelaPrincipal,
   },
   {
