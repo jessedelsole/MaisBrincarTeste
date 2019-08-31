@@ -10,7 +10,8 @@ import { ServiceCursos } from '../WebServices/ServiceCursos';
 export default class TelaPrincipal extends React.Component {
 
   static navigationOptions = {
-    header: null
+    header: null,
+    headerBackTitle:'Voltar'
   }
   state = {
     cursos: []
@@ -23,7 +24,8 @@ export default class TelaPrincipal extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <View style={{ height: 50, width: '100%', flexDirection: 'row', padding: 5, borderBottomColor: CoresProjeto.CinzaClaro, borderBottomWidth: 1 }}>
+        <View style={{ height: 50, width: '100%', flexDirection: 'row', padding: 5, 
+          borderBottomColor: CoresProjeto.CinzaClaro, borderBottomWidth: 1 }}>
           <TouchableOpacity
             onPress={() => { this.props.navigation.openDrawer() }}
           ><Image source={require('./../Recursos/Imagens/menu.png')} ></Image>
@@ -33,10 +35,12 @@ export default class TelaPrincipal extends React.Component {
             <Text style={{ fontSize: 20, color: CoresProjeto.Azul, marginLeft: 10 }}>Mais Brincar</Text>
           </View>
         </View>
-        <FlatList style={{ flex: 1, width: '100%' }}
+
+        <FlatList style={{ flex: 1, width: '100%', backgroundColor:CoresProjeto.Gelo, margin:10 }}
           data={this.state.cursos}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => <IconeCurso onClick={() => this.props.navigation.navigate('NavSelecaoCurso')}
+          renderItem={({ item, index }) => <IconeCurso onClick={() => 
+               this.props.navigation.navigate('NavSelecaoCurso', {curso: item})}
             nome={item.nome} descricao={item.descricao} > </IconeCurso>}
           numColumns={2}
 

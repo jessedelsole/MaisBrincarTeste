@@ -11,11 +11,9 @@ export default class TelaCadastroEmail extends React.Component {
         senha: '',
         confirmacaoSenha: ''
     }
-
     render() {
         return (
             <SafeAreaView style={{ flex: 1, flexDirection: 'column', backgroundColor: CoresProjeto.Branco }} >
-
                 <View style={{ flex: 1, width: '100%', justifyContent: 'center', alignItems: 'center', padding: 20 }}>
                     <TextInput style={{fontSize:16, margin:20, padding:10, width:'100%',borderBottomColor: CoresProjeto.CinzaEscuro,borderBottomWidth:1 }} 
                     placeholder='Email'
@@ -28,16 +26,9 @@ export default class TelaCadastroEmail extends React.Component {
                      placeholder='Confirmação Senha'
                      secureTextEntry={true}
                         onChangeText={(senha) => { this.setState({ senha }) }} />
-
-        
-
-              
                 </View>
-
-              
                 <View style={{margin:20}}> 
                 <TouchableOpacity style={{
-                 
                     backgroundColor: CoresProjeto.Laranja, padding: 10, width: '100%',
                     alignItems: 'center', borderRadius: 90, flexDirection: 'row' }}
                     onPress={() => { this.props.navigation.navigate('NavAplicacao') }}  >

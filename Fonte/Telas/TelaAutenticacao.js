@@ -6,7 +6,8 @@ import { SafeAreaView } from 'react-navigation';
 export default class TelaAutenticacao extends React.Component {
   
   static navigationOptions = {
-    header: null
+    header: null,
+    headerBackTitle:'Voltar'
   }
 
   render() {

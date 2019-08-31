@@ -6,6 +6,11 @@ import { TextInput } from 'react-native-gesture-handler';
 
 export default class TelaAutenticacaoEmail extends React.Component {
 
+    static navigationOptions = {
+        
+        headerBackTitle:'Voltar'
+      }
+
     state = {
         email: '',
         senha: ''
