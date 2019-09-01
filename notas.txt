@@ -1,5 +1,6 @@
 //Instalação de pacotes adiionais:
 //npm install native-base --
+//expo install expo-av
 
 
 --creditos icones

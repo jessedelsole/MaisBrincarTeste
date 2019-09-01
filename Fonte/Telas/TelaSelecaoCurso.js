@@ -29,7 +29,7 @@ export default class TelaSelecaoCurso extends React.Component {
         <BotaoSelecao 
          text = {'Vídeo-Aulas'} 
          source ={require('./../Recursos/Imagens/video-camera.png')} 
-         onPress= { () => {this.props.navigation.navigate('NavListagemAulas') }} >  
+         onPress= { () => {this.props.navigation.navigate('NavListagemAulas', {curso: this.props.navigation.getParam('curso')}) }} >  
         </BotaoSelecao>
 
         <BotaoSelecao 
