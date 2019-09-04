@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import BotaoLogin from '../Componentes/BotaoLogin';
+import * as Facebook from 'expo-facebook';
+import axios from 'axios';
 
 export default class TelaAutenticacao extends React.Component {
 
@@ -24,7 +26,7 @@ export default class TelaAutenticacao extends React.Component {
             text={'Login via Email'}>
           </BotaoLogin>
 
-          <BotaoLogin onPress={() => { this.props.navigation.navigate('NavAplicacao') }}
+          <BotaoLogin onPress={() => { logIn_Facebook(this); }}
             source={require('./../Recursos/Imagens/facebook.png')}
             text={'Login com Facebook'}>
           </BotaoLogin>
@@ -39,3 +41,29 @@ export default class TelaAutenticacao extends React.Component {
   }
 }
 
+
+async function logIn_Facebook(that) {
+  try {
+    const {
+      type,
+      token,
+      expires,
+      permissions,
+      declinedPermissions,
+    } = await Facebook.logInWithReadPermissionsAsync('361184901471634', {
+      permissions: ['public_profile','user_posts','user_hometown', 'email'],
+    });
+    
+    if (type === 'success') {
+      axios(`https://graph.facebook.com/me?access_token=${token}&fields=birthday,name,email`).then( response => {
+        var user = response.data;
+        Alert.alert('User information',`Hi ${JSON.stringify(user)}!`);
+        that.props.navigation.navigate('NavAplicacao')
+      })
+    } else {
+       alert('Erro ao logar');
+    }
+  } catch ({ message }) {
+    alert(`Facebook Login Error: ${message}`);
+  }
+}

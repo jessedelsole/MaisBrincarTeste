@@ -6,7 +6,6 @@ export default class TelaListagemAulas extends React.Component {
 
   state = {
     videoUri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
-
   }
 
   render() {
@@ -21,7 +20,7 @@ export default class TelaListagemAulas extends React.Component {
           shouldPlay={false}
           isLooping
           useNativeControls
-          style={{ width: '100%', height: 300 }} />
+          style={{ width: '100%', height: 230 }} />
 
         <FlatList
           style={{ flex: 1 }}
@@ -32,10 +31,9 @@ export default class TelaListagemAulas extends React.Component {
               onPress={() => {
                 videoUri = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
                 this.setState({ videoUri })
-
               }} />}
         />
-      </View> 
+      </View>
     );
   }
 }
