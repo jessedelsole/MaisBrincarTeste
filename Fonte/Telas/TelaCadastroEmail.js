@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
+import {cadastrarEmail} from '../Autenticacoes/FirebaseMail';
 
 export default class TelaCadastroEmail extends React.Component {
 
@@ -31,12 +32,22 @@ export default class TelaCadastroEmail extends React.Component {
                 <TouchableOpacity style={{
                     backgroundColor: CoresProjeto.Laranja, padding: 10, width: '100%',
                     alignItems: 'center', borderRadius: 90, flexDirection: 'row' }}
-                    onPress={() => { this.props.navigation.navigate('NavAplicacao') }}  >
+                    onPress={() => { this.btnCadastrarEmailClick() }}  >
                     <Text style={{ width: '100%', textAlign: 'center', fontSize: 16, color: 'white' }}>Criar conta</Text>
                 </TouchableOpacity>
                 </View>
             </SafeAreaView>
         );
     }
+    
+    btnCadastrarEmailClick = () => {
+
+        cadastrarEmail(this, this.state.email,this.state.senha);
+    }
+
 }
+
+
+
+
 

@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
+import {login_FirebaseMail} from '../Autenticacoes/FirebaseMail';
 
 export default class TelaAutenticacaoEmail extends React.Component {
 
@@ -42,12 +43,21 @@ export default class TelaAutenticacaoEmail extends React.Component {
                         backgroundColor: CoresProjeto.Laranja, padding: 10, width: '100%',
                         alignItems: 'center', borderRadius: 90, flexDirection: 'row'
                     }}
-                        onPress={() => { this.props.navigation.navigate('NavAplicacao') }}  >
+                        onPress={() => { this.btnLogarClick()}}  >
                         <Text style={{ width: '100%', textAlign: 'center', fontSize: 16, color: 'white' }}>Login</Text>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
         );
     }
+
+
+    btnLogarClick = () => {
+      
+       login_FirebaseMail(this, this.state.email, this.state.senha);
+    
+    }
+    
+
 }
 

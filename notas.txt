@@ -2,6 +2,7 @@
 npm install native-base --
 expo install expo-av
 expo install expo-facebook
+expo install expo-google-app-auth
 npm i axios
 
 --creditos icones

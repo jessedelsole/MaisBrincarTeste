@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
+import {esqueceuSenha} from '../Autenticacoes/FirebaseMail';
 
 export default class TelaEsqueceuSenha extends React.Component {
 
@@ -21,12 +22,22 @@ export default class TelaEsqueceuSenha extends React.Component {
                 <View style={{margin:20}}> 
                 <TouchableOpacity style={{
                     backgroundColor: CoresProjeto.Laranja, padding: 10, width: '100%',
-                    alignItems: 'center', borderRadius: 90, flexDirection: 'row' }}>
+                    alignItems: 'center', borderRadius: 90, flexDirection: 'row' }}
+                    onPress = { () => { this.btnEsqueceuSenhaClick();}}
+                    >
                     <Text style={{ width: '100%', textAlign: 'center', fontSize: 16, color: 'white' }}>Enviar</Text>
                 </TouchableOpacity>
                 </View>
             </SafeAreaView>
         );
     }
+
+
+   btnEsqueceuSenhaClick = ()=> {
+      
+     esqueceuSenha(this.state.email);
+        
+   }
+
 }
 
