@@ -4,6 +4,8 @@ import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
 import {login_FirebaseMail} from '../Autenticacoes/FirebaseMail';
+import * as firebase from 'firebase';
+
 
 export default class TelaAutenticacaoEmail extends React.Component {
 
@@ -54,8 +56,18 @@ export default class TelaAutenticacaoEmail extends React.Component {
 
     btnLogarClick = () => {
       
-       login_FirebaseMail(this, this.state.email, this.state.senha);
-    
+       login_FirebaseMail( this.state.email, this.state.senha 
+
+        ).then( response =>{  
+
+            console.log('caiu em response : '+response);
+            this.props.navigation.navigate('NavAplicacao')}
+              
+       ).catch( error=> {
+            console.log('caiu em error : '+error);
+            alert('erro ao logar');
+       }
+       )
     }
     
 

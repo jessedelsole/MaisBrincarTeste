@@ -13,6 +13,24 @@ export default class TelaAutenticacao extends React.Component {
     header: null,
     headerBackTitle: 'Voltar'
   }
+
+
+componentDidMount(){
+
+    dados = { nome:'jessé', sexo:'cabra macho'};
+
+    a = Object.values(dados);
+    
+    //console.log(a);
+    //console.log(b);
+      
+    const { nome, sexo} = dados;
+
+    console.log('nome:'+nome);
+    console.log('sexo:'+sexo);
+
+}
+
   render() {
     return (
       <SafeAreaView style={{ flex: 1, flexDirection: 'column', backgroundColor: CoresProjeto.Laranja }} >

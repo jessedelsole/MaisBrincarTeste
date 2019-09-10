@@ -15,18 +15,28 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export function login_FirebaseMail(that, email, senha) {
 
-    firebase.auth().signInWithEmailAndPassword(
-        email,
-        senha,
-    ).then(response => {
-        console.log(response);
-        Alert.alert('Login com sucesso', JSON.stringify(response));
-    }).catch(error => {
-        Alert.alert('Login com erro', JSON.stringify(error));
+export function login_FirebaseMail(email, senha) {
+    return new Promise((resolve, reject) => {
+        firebase.auth().signInWithEmailAndPassword(
+            email,
+            senha,
+        ).then(response => {
+
+            console.log( 'response:'+ JSON.stringify(response));
+            resolve({ sucesso: true })
+        }
+        ).catch(error => {
+
+            console.log('error: '+ JSON.stringify(error));
+            reject({ sucesso: false })
+        }
+        )
     });
 }
+
+
+
 
 export function cadastrarEmail(that, email, senha) {
 
@@ -43,7 +53,7 @@ export function cadastrarEmail(that, email, senha) {
 export function esqueceuSenha(email) {
 
     firebase.auth().sendPasswordResetEmail(
-       email,
+        email,
 
     ).then(response => {
         Alert.alert('Enviado para seu email!', JSON.stringify(response));
