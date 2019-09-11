@@ -4,13 +4,11 @@ import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
 import {login_FirebaseMail} from '../Autenticacoes/FirebaseMail';
-import * as firebase from 'firebase';
 
 
 export default class TelaAutenticacaoEmail extends React.Component {
 
     static navigationOptions = {
-        
         headerBackTitle:'Voltar'
       }
 

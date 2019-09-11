@@ -17,7 +17,9 @@ firebase.initializeApp(firebaseConfig);
 
 
 export function login_FirebaseMail(email, senha) {
+    
     return new Promise((resolve, reject) => {
+    
         firebase.auth().signInWithEmailAndPassword(
             email,
             senha,
