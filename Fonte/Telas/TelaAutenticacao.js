@@ -3,9 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from 'react-na
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import BotaoLogin from '../Componentes/BotaoLogin';
-import * as Facebook from 'expo-facebook';
-import axios from 'axios';
 import { login_Google } from '../Autenticacoes/Google';
+import { login_Facebook } from '../Autenticacoes/Facebook';
 
 
 export default class TelaAutenticacao extends React.Component {
@@ -30,7 +29,7 @@ export default class TelaAutenticacao extends React.Component {
             text={'Login via Email'}>
           </BotaoLogin>
 
-          <BotaoLogin onPress={() => { logIn_Facebook(this); }}
+          <BotaoLogin onPress={() => { this.btnLoginFacebookClick(); }}
             source={require('./../Recursos/Imagens/facebook.png')}
             text={'Login com Facebook'}>
           </BotaoLogin>
@@ -56,33 +55,27 @@ export default class TelaAutenticacao extends React.Component {
       }
     )
   }
-}
 
-async function logIn_Facebook(that) {
-  try {
-    const {
-      type,
-      token,
-      expires,
-      permissions,
-      declinedPermissions,
-    } = await Facebook.logInWithReadPermissionsAsync('361184901471634', {
-      permissions: ['public_profile', 'user_posts', 'user_hometown', 'email'],
-    });
 
-    if (type === 'success') {
-      axios(`https://graph.facebook.com/me?access_token=${token}&fields=birthday,name,email`).then(response => {
-        var user = response.data;
-        Alert.alert('User information', `Hi ${JSON.stringify(user)}!`);
-        that.props.navigation.navigate('NavAplicacao');
-      })
-    } else {
-      alert('Erro ao logar');
-    }
-  } catch ({ message }) {
-    alert(`Facebook Login Error: ${message}`);
+  btnLoginFacebookClick = () => {
+
+    login_Facebook().then(
+      response => {
+        this.props.navigation.navigate('NavAplicacao');
+      }
+    ).catch(
+      reject => {
+        alert('Erro ao logar')
+      }
+    )
   }
+
 }
+
+
+
+
+
 
 
 
