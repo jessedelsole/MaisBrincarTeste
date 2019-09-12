@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ActivityIndicator,StatusBar,AsyncStorage, Image } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
 
+
 export default class TelaCarregando extends React.Component{
   
   constructor() {
@@ -9,17 +10,22 @@ export default class TelaCarregando extends React.Component{
     this.inicializacaoApp();
   }
   
+  
   userToken = '';
   
   inicializacaoApp = async () => {
     this.userToken = await AsyncStorage.getItem('userToken');
+
+    console.log('userToken = '+ this.userToken);
 
     setTimeout( () => {   this.gotoMainForm()}, 2000 ) ;
 
   };
 
   gotoMainForm = () => {
+    
     this.props.navigation.navigate(this.userToken?'NavAplicacao':'NavAutenticacao');
+
   }
 
   render() {

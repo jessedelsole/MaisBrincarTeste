@@ -38,8 +38,6 @@ export function login_FirebaseMail(email, senha) {
 }
 
 
-
-
 export function cadastrarEmail(that, email, senha) {
 
     firebase.auth().createUserWithEmailAndPassword(

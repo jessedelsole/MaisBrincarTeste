@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { View, ScrollView,Button,Text, SafeAreaView, Image } from "react-native";
+import { View, ScrollView,Button,Text, SafeAreaView, Image, AsyncStorage } from "react-native";
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
 
 class MenuGaveta extends Component {
@@ -17,14 +17,21 @@ return (
     <View style={{ flex: 1 }}>
       <Button 
         title = 'Log-out'
-        onPress={() => { this.props.navigation.navigate('NavAutenticacao') }}>
-      </Button>
+        onPress={() => { this.btnLogoutClick()}}>
+      </Button> 
     </View>
 
   </SafeAreaView>
 );
 
-} }
+}
+
+btnLogoutClick = async()=>{
+  this.props.navigation.navigate('NavAutenticacao');
+  await AsyncStorage.clear();
+}
+
+}
 
 const styles = {
  container: {  

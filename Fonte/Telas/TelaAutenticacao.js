@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, AsyncStorage } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import BotaoLogin from '../Componentes/BotaoLogin';
@@ -46,12 +46,16 @@ export default class TelaAutenticacao extends React.Component {
   btnLoginGoogleClick = () => {
 
     login_Google().then(
-      response => {
+      async response => {
+        
+        console.log('Response.token==> :'+ response.token);
+        await AsyncStorage.setItem('userToken', response.token);
         this.props.navigation.navigate('NavAplicacao');
+
       }
     ).catch(
       reject => {
-        alert('Erro ao logar')
+        alert('Erro ao logar');
       }
     )
   }
@@ -60,7 +64,10 @@ export default class TelaAutenticacao extends React.Component {
   btnLoginFacebookClick = () => {
 
     login_Facebook().then(
-      response => {
+     async response => {
+      
+        console.log('Response.token==> :'+ response.token);
+        await AsyncStorage.setItem('userToken', response.token);
         this.props.navigation.navigate('NavAplicacao');
       }
     ).catch(
@@ -71,11 +78,3 @@ export default class TelaAutenticacao extends React.Component {
   }
 
 }
-
-
-
-
-
-
-
-

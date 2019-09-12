@@ -15,7 +15,7 @@ export function login_Google() {
                 console.log(JSON.stringify(result));
 
                 if (result.type === 'success') {
-                    resolve({});
+                    resolve({token:result.accessToken});
                 } else {
 
                     reject({});

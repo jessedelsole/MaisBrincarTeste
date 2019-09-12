@@ -17,7 +17,7 @@ export function login_Facebook() {
                     axios(`https://graph.facebook.com/me?access_token=${result.token}&fields=birthday,name,email`).then(response => {
                         var user = response.data;
                         console.log('graph ==> '+ JSON.stringify(response));
-                        resolve()
+                        resolve({token:result.token})
                     })
                 } else {
                      reject();    
