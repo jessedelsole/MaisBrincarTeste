@@ -1,5 +1,3 @@
-
-import { Alert } from 'react-native';
 import * as firebase from 'firebase';
 
 // Initialize Firebase
@@ -38,26 +36,47 @@ export function login_FirebaseMail(email, senha) {
 }
 
 
-export function cadastrarEmail(that, email, senha) {
+export function login_cadastrarEmail(email, senha) {
+    
+    return new Promise((resolve, reject) => {
+    
+        firebase.auth().createUserWithEmailAndPassword(
+            email,
+            senha,
+        ).then(response => {
 
-    firebase.auth().createUserWithEmailAndPassword(
-        email,
-        senha
-    ).then(response => {
-        Alert.alert('Cadastrado com sucesso', JSON.stringify(response));
-    }).catch(error => {
-        Alert.alert('Erro cadastro', JSON.stringify(error));
+            console.log( 'response:'+ JSON.stringify(response));
+            resolve({ sucesso: true })
+        }
+        ).catch(error => {
+
+            console.log('error: '+ JSON.stringify(error));
+            reject({ sucesso: false })
+        }
+        )
     });
 }
 
-export function esqueceuSenha(email) {
 
-    firebase.auth().sendPasswordResetEmail(
-        email,
+export function login_esqueceuSenhal(email) {
+    
+    return new Promise((resolve, reject) => {
+    
+        firebase.auth().sendPasswordResetEmail(
+            email
+            
+        ).then(response => {
 
-    ).then(response => {
-        Alert.alert('Enviado para seu email!', JSON.stringify(response));
-    }).catch(error => {
-        Alert.alert('Erro ao enviar', JSON.stringify(error));
+            console.log( 'response:'+ JSON.stringify(response));
+            resolve({ sucesso: true })
+        }
+        ).catch(error => {
+
+            console.log('error: '+ error);
+            reject({ erro: error })
+        }
+        )
     });
 }
+
+

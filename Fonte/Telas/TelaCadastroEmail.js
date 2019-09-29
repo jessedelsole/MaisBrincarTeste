@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
-import {cadastrarEmail} from '../Autenticacoes/FirebaseMail';
+import {login_cadastrarEmail} from '../Autenticacoes/FirebaseMail';
 
 export default class TelaCadastroEmail extends React.Component {
 
@@ -42,7 +42,20 @@ export default class TelaCadastroEmail extends React.Component {
     
     btnCadastrarEmailClick = () => {
 
-        cadastrarEmail(this, this.state.email,this.state.senha);
+    
+        login_cadastrarEmail( this.state.email, this.state.senha 
+
+            ).then( response =>{  
+    
+                console.log('caiu em response : '+response);
+                this.props.navigation.navigate('NavAplicacao')}
+                  
+           ).catch( error=> {
+                console.log('caiu em error : '+error);
+                alert('erro ao logar');
+           }
+           )
+
     }
 
 }
