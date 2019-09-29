@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, AsyncStorage } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import BotaoLogin from '../Componentes/BotaoLogin';
 import { login_Google } from '../Autenticacoes/Google';
 import { login_Facebook } from '../Autenticacoes/Facebook';
+import { guardarToken }from '../Autenticacoes/TokenManager';
 
 
 export default class TelaAutenticacao extends React.Component {
@@ -35,11 +36,11 @@ export default class TelaAutenticacao extends React.Component {
           </BotaoLogin>
 
           <BotaoLogin onPress={() => { this.btnLoginGoogleClick(); }}
-            source={require('./../Recursos/Imagens/search.png')}
+            source={require('./../Recursos/Imagens/search.png')} 
             text={'Login com Gmail'}>
           </BotaoLogin>
         </View>
-      </SafeAreaView>
+      </SafeAreaView> 
     );
   }
 
@@ -48,8 +49,7 @@ export default class TelaAutenticacao extends React.Component {
     login_Google().then(
       async response => {
         
-        console.log('Response.token==> :'+ response.token);
-        await AsyncStorage.setItem('userToken', response.token);
+        await guardarToken('Google', response.token);
         this.props.navigation.navigate('NavAplicacao');
 
       }
@@ -66,8 +66,7 @@ export default class TelaAutenticacao extends React.Component {
     login_Facebook().then(
      async response => {
       
-        console.log('Response.token==> :'+ response.token);
-        await AsyncStorage.setItem('userToken', response.token);
+        await guardarToken('Facebook', response.token);
         this.props.navigation.navigate('NavAplicacao');
       }
     ).catch(

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import { View, ScrollView,Button,Text, SafeAreaView, Image, AsyncStorage } from "react-native";
+import { View, ScrollView,Button,Text, SafeAreaView, Image } from "react-native";
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto';
+import { deletarToken } from '../Autenticacoes/TokenManager'
 
 class MenuGaveta extends Component {
 render() {
@@ -27,13 +28,13 @@ return (
 }
 
 btnLogoutClick = async()=>{
+  await deletarToken();
   this.props.navigation.navigate('NavAutenticacao');
-  await AsyncStorage.clear();
 }
 
 }
 
-const styles = {
+const styles = { 
  container: {  
   flex: 1,
     }, 
