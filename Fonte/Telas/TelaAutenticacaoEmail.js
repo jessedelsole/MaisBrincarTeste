@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, AsyncStorage } from 'react-native';
 import * as CoresProjeto from './../Recursos/Constantes/CoresProjeto'
 import { SafeAreaView } from 'react-navigation';
 import { TextInput } from 'react-native-gesture-handler';
@@ -13,8 +13,8 @@ export default class TelaAutenticacaoEmail extends React.Component {
       }
 
     state = {
-        email: '',
-        senha: ''
+        email: 'jessedelsole@hotmail.com',
+        senha: 'jessman468250'
     }
     render() {
         return (
@@ -56,9 +56,12 @@ export default class TelaAutenticacaoEmail extends React.Component {
       
        login_FirebaseMail( this.state.email, this.state.senha 
 
-        ).then( response =>{  
+        ).then( async response =>{  
 
-            console.log('caiu em response : '+response);
+            console.log('Response.token==> :'+ response.token);
+            await AsyncStorage.setItem('userToken', response.token);
+           
+          
             this.props.navigation.navigate('NavAplicacao')}
               
        ).catch( error=> {

@@ -24,10 +24,13 @@ export function login_FirebaseMail(email, senha) {
         ).then(response => {
 
             console.log( 'response:'+ JSON.stringify(response));
-            resolve({ sucesso: true })
+
+            userObj = JSON.parse(JSON.stringify(response.user));
+         
+            resolve({ token: userObj.stsTokenManager.accessToken })
         }
         ).catch(error => {
-
+            
             console.log('error: '+ JSON.stringify(error));
             reject({ sucesso: false })
         }
